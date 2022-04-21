@@ -17,12 +17,12 @@ const [userInfo, setUserInfo] = useState<userInfoType>({
   email: ""
 })
 
-const handelChange = (e) => {
+const handelChange = (e:any) => {
   const {name, value} = e.target;
   setUserInfo({...userInfo, [name]: value})
 }
 
-const handleSubmit = (e) => {
+const handleSubmit = (e:any) => {
   e.preventDefault();
   console.log(userInfo.fullname);
   console.log(userInfo.id);
