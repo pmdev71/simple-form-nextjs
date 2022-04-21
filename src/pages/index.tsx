@@ -31,7 +31,7 @@ const handleSubmit = (e:any) => {
 }
 
   return (
-    <div className='w-25 mx-auto'>
+    <div className='w-75 mx-auto'>
 
         <form className='m-4' id="my_form" onSubmit={handleSubmit} >
                   <div className="mb-3">
