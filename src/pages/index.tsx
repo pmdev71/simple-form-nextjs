@@ -1,28 +1,16 @@
 import type { NextPage } from 'next'
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 const Home: NextPage = () => {
-  type userInfoType = {
-    fullname: string;
-    id: string | number;
-    section?: string;
-    phone: number;
-    email: string;
-}
-const [userInfo, setUserInfo] = useState<userInfoType>({
-  fullname: "",
-  id: "",
-  section: "",
-  phone: 0,
-  email: ""
-})
+  
+const [userInfo, setUserInfo] = useState<userInfoType>(initialFormValue)
 
-const handelChange = (e:any) => {
+const handelChange = (e:ChangeEvent<HTMLInputElement>) => {
   const {name, value} = e.target;
   setUserInfo({...userInfo, [name]: value})
 }
 
-const handleSubmit = (e:any) => {
+const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   console.log(userInfo.fullname);
   console.log(userInfo.id);
@@ -59,3 +47,19 @@ const handleSubmit = (e:any) => {
 }
 
 export default Home
+
+type userInfoType = {
+  fullname: string;
+  id: string | number;
+  section?: string;
+  phone: number;
+  email: string;
+}
+
+const initialFormValue = {
+  fullname: "",
+  id: "",
+  section: "",
+  phone: 0,
+  email: ""
+}
